@@ -12,8 +12,7 @@ function showProductos(array) {
                 <div class="col-3">
                 
                     <img src="` + producto.imgSrc + `" alt="` + producto.description + `" class="img-thumbnail">
-                    <h3 style="color : green">` + producto.currency + " " + producto.cost `</h3>
-                    
+                    <h3 style= "color: green">` + producto.currency + producto.cost + `</h3> 
                 </div>
                 
                 <div class="col">
@@ -33,6 +32,7 @@ function showProductos(array) {
     }
     document.getElementById("listado").innerHTML = contenido;
 }
+
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
