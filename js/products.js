@@ -12,6 +12,7 @@ function showProductos(array) {
                 <div class="col-3">
                 
                     <img src="` + producto.imgSrc + `" alt="` + producto.description + `" class="img-thumbnail">
+                    <h3 style="color : green">` + producto.currency + " " + producto.cost `</h3>
                     
                 </div>
                 
