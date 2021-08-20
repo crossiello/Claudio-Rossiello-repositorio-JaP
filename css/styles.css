@@ -164,7 +164,3 @@ a.custom-card:hover {
 .invalid {
     background-color: #f7b436;
 }
-
-.ivalid::placeholder {
-    color: white;
-}
