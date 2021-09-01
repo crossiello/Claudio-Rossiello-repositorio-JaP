@@ -173,3 +173,19 @@ a.custom-card:hover {
 #usuarioInfo {
     float: right;
 }
+
+#buscador {
+    background-color: #f8f9fb;
+    border: 3px;
+    border-color: rgb(70, 69, 69);
+    border-style: solid;
+    width: 520px;
+    height: 40px;
+    margin-left: 30px;
+}
+
+#lupa {
+    width: 45px;
+    height: 45px;
+    margin-left: 5px;
+}
