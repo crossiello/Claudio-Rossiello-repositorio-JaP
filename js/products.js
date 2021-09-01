@@ -1,5 +1,7 @@
 var productsArray = [];
 
+
+
 function showProductos(array) {
     let contenido = "";
     for (let i = 0; i < array.length; i++) {
@@ -7,7 +9,7 @@ function showProductos(array) {
 
         contenido +=
             `
-        <a href="category-info.html" class="list-group-item list-group-item-action">
+        
             <div class="row">
                 <div class="col-3">
                 
@@ -26,7 +28,6 @@ function showProductos(array) {
                     
                 </div>
             </div>
-        </a>
         `
 
     }
