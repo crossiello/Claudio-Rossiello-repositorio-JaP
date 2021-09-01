@@ -1,52 +1,138 @@
-var productsArray = [];
+const ORDER_ASC_BY_NAME = "AZ";
+const ORDER_DESC_BY_NAME = "ZA";
+const ORDER_BY_PROD_COUNT = "Cant.";
+var currentCategoriesArray = [];
+var currentSortCriteria = undefined;
+var minCount = undefined;
+var maxCount = undefined;
 
+function sortCategories(criteria, array) {
+    let result = [];
+    if (criteria === ORDER_ASC_BY_NAME) {
+        result = array.sort(function(a, b) {
+            if (parseInt(a.cost) < (parseInt(b.cost))) { return -1; }
+            if (parseInt(a.cost) > (parseInt(b.cost))) { return 1; }
+            return 0;
+        });
+    } else if (criteria === ORDER_DESC_BY_NAME) {
+        result = array.sort(function(a, b) {
+            if (parseInt(a.cost) > (parseInt(b.cost))) { return -1; }
+            if (parseInt(a.cost) < (parseInt(b.cost))) { return 1; }
+            return 0;
+        });
+    } else if (criteria === ORDER_BY_PROD_COUNT) {
+        result = array.sort(function(a, b) {
+            let aCount = parseInt(a.soldCount);
+            let bCount = parseInt(b.soldCount);
 
-
-function showProductos(array) {
-    let contenido = "";
-    for (let i = 0; i < array.length; i++) {
-        let producto = array[i];
-
-        contenido +=
-            `
-        
-            <div class="row">
-                <div class="col-3">
-                
-                    <img src="` + producto.imgSrc + `" alt="` + producto.description + `" class="img-thumbnail">
-                    <h3 style= "color: green">` + producto.currency + producto.cost + `</h3> 
-                </div>
-                
-                <div class="col">
-                    <div class="d-flex w-100 justify-content-between">
-
-                                        
-                        <h4 class="mb-1">` + producto.name + `</h4>
-                        <small class="text-muted">` + producto.soldCount + ` unidades vendidas</small>
-                    </div>
-                    <p class="mb-1">` + producto.description + `</p>
-                    
-                </div>
-            </div>
-        `
-
+            if (aCount > bCount) { return -1; }
+            if (aCount < bCount) { return 1; }
+            return 0;
+        });
     }
-    document.getElementById("listado").innerHTML = contenido;
+
+    return result;
 }
 
+function showCategoriesList() {
+
+    let htmlContentToAppend = "";
+    for (let i = 0; i < currentCategoriesArray.length; i++) {
+        let producto = currentCategoriesArray[i];
+
+        if (((minCount == undefined) || (minCount != undefined && parseInt(producto.cost) >= minCount)) &&
+            ((maxCount == undefined) || (maxCount != undefined && parseInt(producto.cost) <= maxCount))) {
+
+            htmlContentToAppend += `
+            
+                <div class="row">
+                    <div class="col-3">
+                    
+                        <img src="` + producto.imgSrc + `" alt="` + producto.description + `" class="img-thumbnail">
+                        <h3 style= "color: green">` + producto.currency + producto.cost + `</h3> 
+                    </div>
+                    
+                    <div class="col">
+                        <div class="d-flex w-100 justify-content-between">
+    
+                                            
+                            <h4 class="mb-1">` + producto.name + `</h4>
+                            <small class="text-muted">` + producto.soldCount + ` unidades vendidas</small>
+                        </div>
+                        <p class="mb-1">` + producto.description + `</p>
+                        
+                    </div>
+                </div>
+            `
+        }
+
+        document.getElementById("listado").innerHTML = htmlContentToAppend;
+    }
+}
+
+function sortAndShowCategories(sortCriteria, categoriesArray) {
+    currentSortCriteria = sortCriteria;
+
+    if (categoriesArray != undefined) {
+        currentCategoriesArray = categoriesArray;
+    }
+
+    currentCategoriesArray = sortCategories(currentSortCriteria, currentCategoriesArray);
+
+    //Muestro las categorías ordenadas
+    showCategoriesList();
+}
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e) {
-
-    getJSONData(PRODUCTS_URL).then(function(resultado) {
-        if (resultado.status === "ok") {
-            productsArray = resultado.data;
-
-            showProductos(productsArray);
+    getJSONData(PRODUCTS_URL).then(function(resultObj) {
+        if (resultObj.status === "ok") {
+            sortAndShowCategories(ORDER_ASC_BY_NAME, resultObj.data);
         }
-
     });
 
+    document.getElementById("sortAsc").addEventListener("click", function() {
+        sortAndShowCategories(ORDER_ASC_BY_NAME);
+    });
+
+    document.getElementById("sortDesc").addEventListener("click", function() {
+        sortAndShowCategories(ORDER_DESC_BY_NAME);
+    });
+
+    document.getElementById("sortByCount").addEventListener("click", function() {
+        sortAndShowCategories(ORDER_BY_PROD_COUNT);
+    });
+
+    document.getElementById("clearRangeFilter").addEventListener("click", function() {
+        document.getElementById("rangeFilterCountMin").value = "";
+        document.getElementById("rangeFilterCountMax").value = "";
+
+        minCount = undefined;
+        maxCount = undefined;
+
+        showCategoriesList();
+    });
+
+    document.getElementById("rangeFilterCount").addEventListener("click", function() {
+        //Obtengo el mínimo y máximo de los intervalos para filtrar por cantidad
+        //de productos por categoría.
+        minCount = document.getElementById("rangeFilterCountMin").value;
+        maxCount = document.getElementById("rangeFilterCountMax").value;
+
+        if ((minCount != undefined) && (minCount != "") && (parseInt(minCount)) >= 0) {
+            minCount = parseInt(minCount);
+        } else {
+            minCount = undefined;
+        }
+
+        if ((maxCount != undefined) && (maxCount != "") && (parseInt(maxCount)) >= 0) {
+            maxCount = parseInt(maxCount);
+        } else {
+            maxCount = undefined;
+        }
+
+        showCategoriesList();
+    });
 });
