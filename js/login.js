@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
 function guardarDatos() {
 
     //Creo un objeto que contega los datos a guardar:
-    let datos_u = document.getElementById("inputEmail").value
+    let datos_u = document.getElementById("inputEmail").value;
 
 
     localStorage.setItem("datos_user", datos_u);
