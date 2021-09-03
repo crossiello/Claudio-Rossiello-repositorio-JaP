@@ -48,7 +48,6 @@ function showProductsList() {
 
             if (buscar == undefined || producto.name.toLowerCase().indexOf(buscar) != -1 || producto.description.toLowerCase().indexOf(buscar) != -1) {
 
-
                 htmlContentToAppend += `
             
                 <div class="row">
