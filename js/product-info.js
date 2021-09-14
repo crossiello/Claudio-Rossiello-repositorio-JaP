@@ -4,16 +4,17 @@
 
 document.addEventListener("DOMContentLoaded", function(e) {
 
-    //Primero verifico si hay algo guardado con ese nombre
-    if (localStorage.getItem('producto')) {
+    if (localStorage.getItem("producto")) {
+
+        datos_u_json = localStorage.getItem("producto");
+
+        datos_u = JSON.parse(datos_u_json);
 
         //Muestro el objeto en pantalla con DOM:
-        document.getElementById("claudio").innerHTML = localStorage.getItem('indiceProducto');
+        document.getElementById("claudio").innerHTML = datos_u.indexProducto;
 
     } else {
-        document.getElementById("claudio").innerHTML = "Ocurrio un error";
+        document.getElementById("usuarioInfo").innerHTML = "Ingresar usuario";
     }
 
-
-
-});
+})
