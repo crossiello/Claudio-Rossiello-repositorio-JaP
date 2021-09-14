@@ -35,6 +35,11 @@ function sortProducts(criteria, array) {
     return result;
 }
 
+function verProducto(index) {
+    localStorage.setItem('producto', JSON.stringify({ indexProducto: index }));
+    window.location = 'product-info.html';
+}
+
 function showProductsList() {
 
     let htmlContentToAppend = "";
@@ -49,6 +54,8 @@ function showProductsList() {
             if (buscar == undefined || producto.name.toLowerCase().indexOf(buscar) != -1 || producto.description.toLowerCase().indexOf(buscar) != -1) {
 
                 htmlContentToAppend += `
+
+                <a href="#" class="list-group-item list-group-item-action" onclick = verProducto(` + i + `)>
             
                 <div class="row">
                     <div class="col-3">
@@ -68,6 +75,8 @@ function showProductsList() {
                         
                     </div>
                 </div>
+
+                </a>
             `
             }
 
@@ -150,5 +159,11 @@ document.addEventListener("DOMContentLoaded", function(e) {
 
 
     });
+
+
+
+
+
+
 
 });
