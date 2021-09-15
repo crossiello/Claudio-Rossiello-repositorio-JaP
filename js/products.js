@@ -35,8 +35,8 @@ function sortProducts(criteria, array) {
     return result;
 }
 
-function verProducto(precio) {
-    localStorage.setItem('producto', JSON.stringify({ precioProducto: precio }));
+function verProducto(id) {
+    localStorage.setItem('producto', JSON.stringify({ idProducto: id }));
     window.location = 'product-info.html';
 }
 
@@ -55,7 +55,7 @@ function showProductsList() {
 
                 htmlContentToAppend += `
 
-                <a href="#" class="list-group-item list-group-item-action" onclick = verProducto(` + producto.cost + `)>
+                <a href="#" class="list-group-item list-group-item-action" onclick = verProducto(` + producto.id + `)>
             
                 <div class="row">
                     <div class="col-3">
@@ -103,7 +103,7 @@ function sortAndShowProducts(sortCriteria, productsArray) {
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e) {
-    getJSONData(PRODUCTS_URL).then(function(resultObj) {
+    getJSONData(PRODUCTS_URL2).then(function(resultObj) {
         if (resultObj.status === "ok") {
             sortAndShowProducts(MENOR_PRECIO, resultObj.data);
         }
