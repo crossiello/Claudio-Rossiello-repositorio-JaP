@@ -35,8 +35,8 @@ function sortProducts(criteria, array) {
     return result;
 }
 
-function verProducto(index) {
-    localStorage.setItem('producto', JSON.stringify({ indexProducto: index }));
+function verProducto(precio) {
+    localStorage.setItem('producto', JSON.stringify({ precioProducto: precio }));
     window.location = 'product-info.html';
 }
 
@@ -55,7 +55,7 @@ function showProductsList() {
 
                 htmlContentToAppend += `
 
-                <a href="#" class="list-group-item list-group-item-action" onclick = verProducto(` + i + `)>
+                <a href="#" class="list-group-item list-group-item-action" onclick = verProducto(` + producto.cost + `)>
             
                 <div class="row">
                     <div class="col-3">
