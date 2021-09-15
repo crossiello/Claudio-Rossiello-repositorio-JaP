@@ -1,5 +1,6 @@
 [{
 
+    "id": 0,
     "name": "Chevrolet Onix Joy",
     "description": "Potenciá tu actitud con Onix Joy que, además de destacarse por su diseño juvenil y moderno, te ofrecé una óptima autonomía, un desempeño equilibrado y el máximo confort interior. \u003cbr\u003eYa sea un viaje largo o un simple paseo por la ciudad, el confort es uno de los puntos fuertes del Onix. Esta versión incluye aire acondicionado, asientos tapizados en tela y gran espacio interior que te garantiza el máximo confort.",
     "cost": 13500,
@@ -16,6 +17,7 @@
     "relatedProducts": [1, 3]
 
 }, {
+    "id": 1,
     "name": "Fiat Uno Way",
     "description": "Es un vehículo osado y singular en sus conceptos y sus líneas. Desde su llegada sorprendió por su diseño y funcionalidades. A su vez, sus molduras en las puertas y sus fenders le aportan robustez a su diseño sin quitarle elegancia. Mientras tanto, sus rieles portaequipaje en el techo le otorgan un look más agresivo con personalidad off road. Fiat Uno Way está listo para recorrer cualquier camino.",
     "cost": 14500,
@@ -32,6 +34,7 @@
     "relatedProducts": [1, 3]
 
 }, {
+    "id": 2,
     "name": "Suzuki Celerio",
     "description": "Su espacio interior y la elevación de sus asientos ofrecen una experiencia única de confort para el disfrute de su andar. Tan seguro como todo Suzuki e increíblemente eficiente energéticamente: ¡Hacés Montevideo – Pirápolis (100 Km) con solo 3,8 litros!",
     "cost": 12500,
@@ -48,6 +51,7 @@
     "relatedProducts": [1, 3]
 
 }, {
+    "id": 3,
     "name": "Peugeot 208",
     "description": "Con un diseño con proporciones exactas que generan un vehículo dinámico y bien equilibrado, inspirado en el concept Fractal. El diseño delantero del vehículo adopta la nueva firma lumínica asemejándose a los colmillos de un león mientras que el nombre del modelo nuevamente está colocado en el frente con un diseño gráfico nuevo y moderno. También el logo del león se colocó en posición vertical sobre la grilla frontal.",
     "cost": 15200,
