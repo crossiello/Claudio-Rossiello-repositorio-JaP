@@ -8,7 +8,7 @@ function mostrarProducto(producto, comentarios) {
     info += `   <h2>${producto.name} </h2>;
                 <p>${producto.description}</p>`;
 
-    document.getElementById("claudio"), innerHTML = info;
+    document.getElementById("claudio").innerHTML = info;
 }
 
 document.addEventListener("DOMContentLoaded", function(e) {
