@@ -1,0 +1,110 @@
+[{
+        "0": [{
+                "score": 3,
+                "description": "Ya llevo un año con este auto y la verdad que tiene sus ventajas y desventajas",
+                "user": "juan_pedro",
+                "dateTime": "2020-02-25 18:03:52"
+            },
+            {
+                "score": 5,
+                "description": "Es un auto muy cómodo y en relación precio/calidad vale la pena!",
+                "user": "maria_sanchez",
+                "dateTime": "2020-01-17 13:42:18"
+            },
+            {
+                "score": 4,
+                "description": "Casi todo bien!, excepto por algún detalle de gusto personal",
+                "user": "paola_perez",
+                "dateTime": "2020-03-14 09:05:13"
+            },
+            {
+                "score": 5,
+                "description": "Un espectáculo el auto!",
+                "user": "pablo_gomez",
+                "dateTime": "2020-02-21 15:05:22"
+            }
+        ]
+
+    },
+    {
+        "1": [{
+                "score": 2,
+                "description": "No me gusta su andar y los services son muy caros",
+                "user": "alberto44",
+                "dateTime": "2020-02-24 19:13:52"
+            },
+            {
+                "score": 4,
+                "description": "Me gusta mucho el diseño",
+                "user": "barbara_james",
+                "dateTime": "2020-11-15 19:42:18"
+            },
+            {
+                "score": 4,
+                "description": "Valja muy espaciosa",
+                "user": "chelo_r",
+                "dateTime": "2020-07-14 11:05:13"
+            },
+            {
+                "score": 5,
+                "description": "Una nave",
+                "user": "paz55",
+                "dateTime": "2020-12-21 07:05:22"
+            }
+        ]
+    },
+    {
+        "2": [{
+                "score": 5,
+                "description": "Muy económico y se porta bien en ruta",
+                "user": "claudio32",
+                "dateTime": "2020-03-25 21:03:52"
+            },
+            {
+                "score": 4,
+                "description": "Por encima de otros autos del segmento",
+                "user": "valerio22",
+                "dateTime": "2020-04-17 20:42:18"
+            },
+            {
+                "score": 5,
+                "description": "Un relojito",
+                "user": "bobby_j",
+                "dateTime": "2020-07-14 11:05:13"
+            },
+            {
+                "score": 3,
+                "description": "Cumple con lo necesario",
+                "user": "richardddd",
+                "dateTime": "2020-05-21 19:05:22"
+            }
+        ]
+    },
+    {
+        "3": [{
+                "score": 5,
+                "description": "Muy elegante",
+                "user": "camila77",
+                "dateTime": "2020-10-13 14:22:52"
+            },
+            {
+                "score": 5,
+                "description": "Potencia y practicidad en un solo auto!",
+                "user": "felix142",
+                "dateTime": "2020-01-17 13:42:18"
+            },
+            {
+                "score": 4,
+                "description": "Sin palabras con el vehículo, no pongo 5 por los costos de mantenimiento",
+                "user": "pepe_p",
+                "dateTime": "2020-06-19 17:05:13"
+            },
+            {
+                "score": 5,
+                "description": "Un auto de alta gama a un precio accesible",
+                "user": "nico14",
+                "dateTime": "2020-04-06 21:07:29"
+            }
+        ]
+    }
+]
