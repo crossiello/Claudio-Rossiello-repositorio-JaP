@@ -145,7 +145,7 @@ function showComentarios(array) {
     enviar +=
         `
         <hr><br><br>
-        <h2>Dejanos tu comentario</h2> 
+        <h2>Deja tu comentario</h2> 
         <hr>   
     <div>
     
