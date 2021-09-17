@@ -1,6 +1,7 @@
 uctsArray = [];
 var comentariosArray = [];
 
+//Obtengo la puntuación que puso el usuario
 function getRating() {
     var elements = document.getElementsByName("opcion");
     for (var i = 0; i < elements.length; i++) {
@@ -9,12 +10,13 @@ function getRating() {
         }
     }
 }
-
+//Guardo los datos del comentario ingresado
 function verComentario(id, comentario, rating) {
     localStorage.setItem('comentario', JSON.stringify({ idUsuario: id, comentario: comentario, rating: rating }));
     window.location = 'product-info.html';
 }
 
+//Funcionalidad del botón. Primero verifica que esté todo bien y luego guarda los datos para mostrarlos
 function enviarComentario() {
     document.getElementById("boton").addEventListener("click", function() {
 
@@ -48,7 +50,8 @@ function enviarComentario() {
 
 }
 
-function showProductos(array) {
+//Función que muestra el producto
+function showProducto(array) {
     let contenido = "";
     p_json = localStorage.getItem("producto");
     p = JSON.parse(p_json);
@@ -83,6 +86,8 @@ function showProductos(array) {
     document.getElementById("listado").innerHTML = contenido;
 }
 
+//Función que muestra los comentarios
+
 function showComentarios(array) {
 
     let comenta = "<h2>Opiniones</h2>";
@@ -107,14 +112,14 @@ function showComentarios(array) {
             }
         }
     }
-
+    //Si hay otro comentario ingresado, lo agrega
     if (localStorage.getItem("comentario")) {
 
         let datos_comentario_json = localStorage.getItem("comentario");
 
         let datos_comentario = JSON.parse(datos_comentario_json);
 
-        //Agrego a los otros comentarios:
+
         comenta +=
             `            
     <tr>
@@ -142,6 +147,8 @@ function showComentarios(array) {
 
 
         document.getElementById("comentarios").innerHTML = comenta;
+
+    //Agrega el formulario para envíar
 
     enviar +=
         `
@@ -180,9 +187,9 @@ document.addEventListener("DOMContentLoaded", function(e) {
         if (resultado.status === "ok") {
             productsArray = resultado.data;
 
-            showProductos(productsArray);
+            showProducto(productsArray);
         }
-
+        //Se usa .then para que espere a que se complete la función anterior
     }).then(function(e) {
 
         getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function(resultado) {
