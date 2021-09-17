@@ -1,56 +1,7 @@
 var productsArray = [];
 var comentariosArray = [];
 
-//Obtengo la puntuación que puso el usuario
-function getRating() {
-    var elements = document.getElementsByName("opcion");
-    for (var i = 0; i < elements.length; i++) {
-        if (elements[i].checked) {
-            return parseInt(elements[i].value);
-        }
-    }
-}
-//Guardo los datos del comentario ingresado
-function verComentario(id, comentario, rating) {
-    localStorage.setItem('comentario', JSON.stringify({ idUsuario: id, comentario: comentario, rating: rating }));
-    window.location = 'product-info.html';
-}
 
-//Funcionalidad del botón. Primero verifica que esté todo bien y luego guarda los datos para mostrarlos
-function enviarComentario() {
-    document.getElementById("boton").addEventListener("click", function() {
-
-        let inputComentario = document.getElementById("cuadro");
-        let puntuacion = getRating();
-        let datos_c_json = localStorage.getItem("datos_user");
-        let datos_c = JSON.parse(datos_c_json);
-        let usuarioC = datos_c.email;
-        let opcionesCompletas = true;
-
-        if (inputComentario.value === "") {
-            inputComentario.classList.add("invalid");
-            opcionesCompletas = false;
-        } else {
-            inputComentario.classList.remove("invalid");
-        }
-
-        if (datos_c.email != "") {
-
-            if (opcionesCompletas) {
-                verComentario(usuarioC, inputComentario.value, puntuacion)
-
-                alert("Gracias por enviar su comentario");
-            } else {
-                alert("Debe ingresar un comentario");
-            }
-        } else {
-            alert("Debe registrarse para comentar");
-            inputComentario.classList.remove("invalid");
-        }
-
-    });
-
-}
 
 //Función que muestra el producto
 function showProducto(array) {
@@ -194,6 +145,57 @@ function showComentarios(array) {
                     
                     `
     document.getElementById("enviar").innerHTML = enviar;
+}
+
+//Obtengo la puntuación que puso el usuario
+function getRating() {
+    var elements = document.getElementsByName("opcion");
+    for (var i = 0; i < elements.length; i++) {
+        if (elements[i].checked) {
+            return parseInt(elements[i].value);
+        }
+    }
+}
+//Guardo los datos del comentario ingresado
+function verComentario(id, comentario, rating) {
+    localStorage.setItem('comentario', JSON.stringify({ idUsuario: id, comentario: comentario, rating: rating }));
+    window.location = 'product-info.html';
+}
+
+//Funcionalidad del botón. Primero verifica que esté todo bien y luego guarda los datos para mostrarlos
+function enviarComentario() {
+    document.getElementById("boton").addEventListener("click", function() {
+
+        let inputComentario = document.getElementById("cuadro");
+        let puntuacion = getRating();
+        let datos_c_json = localStorage.getItem("datos_user");
+        let datos_c = JSON.parse(datos_c_json);
+        let usuarioC = datos_c.email;
+        let opcionesCompletas = true;
+
+        if (inputComentario.value === "") {
+            inputComentario.classList.add("invalid");
+            opcionesCompletas = false;
+        } else {
+            inputComentario.classList.remove("invalid");
+        }
+
+        if (datos_c.email != "") {
+
+            if (opcionesCompletas) {
+                verComentario(usuarioC, inputComentario.value, puntuacion)
+
+                alert("Gracias por enviar su comentario");
+            } else {
+                alert("Debe ingresar un comentario");
+            }
+        } else {
+            alert("Debe registrarse para comentar");
+            inputComentario.classList.remove("invalid");
+        }
+
+    });
+
 }
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
