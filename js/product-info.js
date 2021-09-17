@@ -1,4 +1,4 @@
-uctsArray = [];
+var productsArray = [];
 var comentariosArray = [];
 
 //Obtengo la puntuación que puso el usuario
