@@ -61,8 +61,7 @@ function showProducto(array) {
     contenido +=
         `
         <div class="text-center p-4">
-        <br>
-                <h2 class="display-3"><strong>` + producto.name + `</strong></h2>
+                <h1 class="display-3"><strong>` + producto.name + `</strong></h1>
 
                 <br><hr>
          
