@@ -148,10 +148,11 @@ function showComentarios(array) {
         <h2>Deja tu comentario</h2> 
         <hr>   
     <div>
+
     
     <textarea name="texto" id="cuadro" cols="60" rows="5" placeholder="Escriba un comentario.."></textarea> <br>
-                    <div></div>
-                    <p>Puntuación:</p>
+                    
+                    Puntuación: 
                         <input type="radio" id="huey" name="opcion" value="1" >
                         <label for="huey">1</label>
                         <input type="radio" id="dewey" name="opcion" value="2">
@@ -161,9 +162,10 @@ function showComentarios(array) {
                         <input type="radio" id="louie" name="opcion" value="4">
                         <label for="louie">4</label>
                         <input type="radio" id="louie" name="opcion" value="5"checked>
-                        <label for="louie">5</label>
-                        <button type="submit" id="boton">Enviar</button>
-                    </div>
+                        <label for="louie">5</label><br>
+                        <button type="submit" id="boton" class="btn btn-primary btn-lg">Enviar</button>
+                    
+                    
                     `
     document.getElementById("enviar").innerHTML = enviar;
 }
