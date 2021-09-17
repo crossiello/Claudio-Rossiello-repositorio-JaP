@@ -37,7 +37,7 @@ function sortProducts(criteria, array) {
 //Guarda el id que paso por parámetro en Local Storage y redirige 
 function verProducto(id) {
     localStorage.setItem('producto', JSON.stringify({ idProducto: id }));
-    window.location = 'products-info.html';
+    window.location = 'product-info.html';
 }
 
 //En el showProductsList agrego la etiqueta a, que al ser clickeada, apicla la función verProducto
