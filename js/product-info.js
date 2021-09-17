@@ -210,11 +210,14 @@ document.addEventListener("DOMContentLoaded", function(e) {
         //Se usa .then para que espere a que se complete la función anterior
     }).then(function(e) {
 
-        getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function(resultado) {
+        getJSONData(COMENTARIOS).then(function(resultado) {
             if (resultado.status === "ok") {
                 comentariosArray = resultado.data;
+                p_json = localStorage.getItem("producto");
+                p = JSON.parse(p_json);
+                indice = p.idProducto;
 
-                showComentarios(comentariosArray);
+                showComentarios(comentariosArray[indice]);
                 enviarComentario();
             }
 
