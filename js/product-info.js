@@ -43,8 +43,10 @@ function enviarComentario() {
             } else {
                 alert("Debe ingresar un comentario");
             }
-        } else
+        } else {
             alert("Debe registrarse para comentar");
+            inputComentario.classList.remove("invalid");
+        }
 
     });
 
@@ -160,16 +162,33 @@ function showComentarios(array) {
     <textarea name="texto" id="cuadro" cols="60" rows="5" placeholder="Escriba un comentario.."></textarea> <br>
                     
                     Puntuación: 
-                        <input type="radio" id="huey" name="opcion" value="1" >
-                        <label for="huey">1</label>
-                        <input type="radio" id="dewey" name="opcion" value="2">
-                        <label for="dewey">2</label>
-                        <input type="radio" id="louie" name="opcion" value="3">
-                        <label for="louie">3</label>
-                        <input type="radio" id="louie" name="opcion" value="4">
-                        <label for="louie">4</label>
-                        <input type="radio" id="louie" name="opcion" value="5"checked>
-                        <label for="louie">5</label><br>
+                    <div class="star-rating">
+                    <input id="star-5" type="radio" name="opcion" value="5"  />
+                    <label for="star-5" title="5 stars">
+                      <i class="active fa fa-star"></i>
+                    </label>
+              
+                    <input id="star-4" type="radio" name="opcion" value="4"/>
+                    <label for="star-4" title="4 stars">
+                      <i class="active fa fa-star"></i>
+                    </label>
+              
+                    <input id="star-3" type="radio" name="opcion" value="3"/>
+                    <label for="star-3" title="3 stars">
+                      <i class="active fa fa-star"></i>
+                    </label>
+              
+                    <input id="star-2" type="radio" name="opcion" value="2" />
+                    <label for="star-2" title="2 stars">
+                      <i class="active fa fa-star"></i>
+                    </label>
+              
+                    <input id="star-1" type="radio" name="opcion" value="1" checked/>
+                    <label for="star-1" title="1 star">
+                      <i class="active fa fa-star"></i>
+                    </label>
+                    
+                  </div>
                         <button type="submit" id="boton" class="btn btn-primary btn-lg">Enviar</button>
                     
                     
