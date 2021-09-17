@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
         if (camposCompletos) {
             window.location = 'inicio.html';
         } else {
-            alert("Debes ingresar los datos")
+            alert("Debe ingresar los datos")
         }
     });
 
