@@ -26,13 +26,16 @@ function showProducto(array) {
             <br>
             <h3 style= "color: black">Llevalo por ` + producto.currency + producto.cost + `</h3> <hr><br>
             <h2>Galería</h2>
-            <hr>        
+            <hr> 
+            
+            
                            
             <img src="` + producto.images[0] + `" alt="` + producto.description + `" width="269" height="164">
             <img src="` + producto.images[1] + `" alt="` + producto.description + `" width="269" height="164">             
             <img src="` + producto.images[2] + `" alt="` + producto.description + `" width="269" height="164">
             <img src="` + producto.images[3] + `" alt="` + producto.description + `" width="269" height="164">
-                     
+
+          
                 
         `
     document.getElementById("listado").innerHTML = contenido;
@@ -141,6 +144,7 @@ function showComentarios(array) {
                     
                   </div>
                         <button type="submit" id="boton" class="btn btn-primary btn-lg">Enviar</button>
+                        <hr>
                     
                     
                     `
@@ -197,6 +201,70 @@ function enviarComentario() {
     });
 
 }
+//Guarda el id que paso por parámetro en Local Storage y redirige 
+function verRelacionado(id) {
+    localStorage.setItem('producto', JSON.stringify({ idProducto: id }));
+    window.location = 'product-info.html';
+}
+
+//Función que muestra los productos relacionados
+function showRelacionados(array) {
+    let contenido = "";
+    p_json = localStorage.getItem("producto");
+    p = JSON.parse(p_json);
+    indice = p.idProducto;
+    let indiceUno = array[indice].relatedProducts[0];
+    let indiceDos = array[indice].relatedProducts[1];
+    let productoUno = array[indiceUno];
+    let productoDos = array[indiceDos];
+
+    contenido += ` <br><br>
+    <h2>Tal vez te interese</h2>
+    <hr> 
+    <tr>
+    <td>
+    <a href="#" class="list-group-item list-group-item-action" onclick = verRelacionado(` + indiceUno + `)>
+    ` + productoUno.name + `  <br>
+    <img src="` + productoUno.images[0] + `" alt="` + productoUno.description + `" width="269" height="164"> 
+    </a> 
+    </td>
+
+    <td>    
+    <a href="#" class="list-group-item list-group-item-action" onclick = verRelacionado(` + indiceDos + `)>
+    ` + productoDos.name + `  <br>
+    <img src="` + productoDos.images[0] + `" alt="` + productoDos.description + `" width="269" height="164"> 
+    </a>
+    </td> 
+    
+    </tr>
+
+    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+    <img src="` + productoUno.images[0] + `" class="d-block w-100" alt="` + productoDos.description + `" onclick = verRelacionado(` + indiceUno + `) >
+    </div>
+    <div class="carousel-item">
+    <img src="` + productoDos.images[0] + `" class="d-block w-100" alt="` + productoDos.description + `" onclick = verRelacionado(` + indiceDos + `)>
+    </div>
+    
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>`
+
+
+
+    document.getElementById("relacionados").innerHTML = contenido;
+}
+
+
+
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
@@ -208,6 +276,8 @@ document.addEventListener("DOMContentLoaded", function(e) {
             productsArray = resultado.data;
 
             showProducto(productsArray);
+            showRelacionados(productsArray);
+
         }
         //Se usa .then para que espere a que se complete la función anterior
     }).then(function(e) {
