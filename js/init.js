@@ -57,8 +57,19 @@ document.addEventListener("DOMContentLoaded", function(e) {
 
         datos_u = JSON.parse(datos_u_json);
 
+
+
         //Muestro el objeto en pantalla con DOM:
-        document.getElementById("usuarioInfo").innerHTML = datos_u.email;
+        document.getElementById("usuarioInfo").innerHTML = `<div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  ` + datos_u.email + ` 
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="cart.html">Ver mi carrito</a>
+    <a class="dropdown-item" href="#">Mi perfil</a>
+    <a class="dropdown-item" href="index.html">Cerrar sesión</a>
+  </div>
+</div>`;
 
     } else {
         document.getElementById("usuarioInfo").innerHTML = "Ingresar usuario";
