@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
 
         //Muestro el objeto en pantalla con DOM:
         document.getElementById("usuarioInfo").innerHTML = `<div class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <button class="btn btn-outline-success" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
   ` + datos_u.email + ` 
   </button>
   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
