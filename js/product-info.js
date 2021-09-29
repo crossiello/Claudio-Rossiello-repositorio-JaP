@@ -19,21 +19,59 @@ function showProducto(array) {
                 <br><hr>
          
             </div>
+            <div class="conteiner">
             <p class="lead">` + producto.description + `</p>
+
+
         <h1 class="mb-1"></h1>
                 
             </div>
             <br>
-            <h3 style= "color: black">Llevalo por ` + producto.currency + producto.cost + `</h3> <hr><br>
+            <h3 style= "color: black">Llevalo por ` + producto.currency + producto.cost + `</h3> <hr><br><br><br>
             <h2>Galería</h2>
             <hr> 
+
+            </div>
             
             
-                           
-            <img src="` + producto.images[0] + `" alt="` + producto.description + `" width="269" height="164">
-            <img src="` + producto.images[1] + `" alt="` + producto.description + `" width="269" height="164">             
-            <img src="` + producto.images[2] + `" alt="` + producto.description + `" width="269" height="164">
-            <img src="` + producto.images[3] + `" alt="` + producto.description + `" width="269" height="164">
+            
+                <div id="galeria">
+                    
+                            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                    <img src="` + producto.images[0] + `" class="d-block w-100 alt="` + producto.description + `" width="766px" height="468px">
+                                     
+                                    </div>
+                                    <div class="carousel-item">
+                                    <img src="` + producto.images[1] + `" class="d-block w-100 ` + producto.description + `" width="766px" height="468px">
+                                    
+                                    </div>
+                                    <div class="carousel-item">
+                                        
+                                            <img src="` + producto.images[2] + `" class="d-block w-100 alt="` + producto.description + `" width="766px" height="468px">
+                                                                                                                        
+                                    </div>
+                                    <div class="carousel-item">
+                                        
+                                            <img src="` + producto.images[3] + `" class="d-block w-100 alt="` + producto.description + `" width="766px" height="468px">
+                                                                                                                        
+                                    </div>
+                                </div>
+                                <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="sr-only">Previous</span>
+                                </a>
+                                <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="sr-only">Next</span>
+                                </a>
+                            </div>
+                       
+                </div>
+                
+            <br>
+            
 
           
                 
@@ -221,42 +259,55 @@ function showRelacionados(array) {
     contenido += ` <br><br>
     <h2>Tal vez te interese</h2>
     <hr> 
-    <tr>
-    <td>
+    
     <a href="#" class="list-group-item list-group-item-action" onclick = verRelacionado(` + indiceUno + `)>
-    ` + productoUno.name + `  <br>
+    <div class="row">
+                    <div class="col-3">
     <img src="` + productoUno.images[0] + `" alt="` + productoUno.description + `" width="269" height="164"> 
-    </a> 
-    </td>
+    <h3 style= "color: green">` + productoUno.currency + productoUno.cost + `</h3>
+    </div>
 
-    <td>    
+    <div class="col">
+    <div class="d-flex w-100 justify-content-between">
+
+                        
+        <h4 class="mb-1">` + productoUno.name + `</h4>
+        <small class="text-muted">` + productoUno.soldCount + ` unidades vendidas</small>
+    </div>
+    <p class="mb-1">` + productoUno.description + `</p>
+    
+    </div>
+</div>
+</a>
+
+    <br>
+
+      
     <a href="#" class="list-group-item list-group-item-action" onclick = verRelacionado(` + indiceDos + `)>
-    ` + productoDos.name + `  <br>
-    <img src="` + productoDos.images[0] + `" alt="` + productoDos.description + `" width="269" height="164"> 
+    <div class="row">
+                    <div class="col-3">
+    
+    <img src="` + productoDos.images[0] + `" alt="` + productoDos.description + `" width="269" height="164">
+    <h3 style= "color: green">` + productoDos.currency + productoDos.cost + `</h3> 
+                    </div>
+    
+                    <div class="col">
+                    <div class="d-flex w-100 justify-content-between">
+                
+                                        
+                        <h4 class="mb-1">` + productoDos.name + `</h4>
+                        <small class="text-muted">` + productoDos.soldCount + ` unidades vendidas</small>
+                    </div>
+                    <p class="mb-1">` + productoDos.description + `</p>
+    
+        </div>
+    </div>
     </a>
-    </td> 
     
-    </tr>
+    
+    
 
-    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-    <img src="` + productoUno.images[0] + `" class="d-block w-100" alt="` + productoDos.description + `" onclick = verRelacionado(` + indiceUno + `) >
-    </div>
-    <div class="carousel-item">
-    <img src="` + productoDos.images[0] + `" class="d-block w-100" alt="` + productoDos.description + `" onclick = verRelacionado(` + indiceDos + `)>
-    </div>
-    
-  </div>
-  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
-</div>`
+    `
 
 
 
