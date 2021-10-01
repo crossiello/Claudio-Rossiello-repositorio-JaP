@@ -48,7 +48,7 @@ function showProducto(array) {
             
             <div class="row">
             
-                <div col-8>
+                <div class= "col-9">
                     
                             <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                                 <div class="carousel-inner">
@@ -80,8 +80,9 @@ function showProducto(array) {
                                     <span class="sr-only">Next</span>
                                 </a>
                             </div>
+                            </div>
                        
-                </div>
+                
             </div>
                 
             <br>
