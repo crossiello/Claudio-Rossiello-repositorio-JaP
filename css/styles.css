@@ -212,10 +212,3 @@ a.custom-card:hover {
 .star-rating input[type=radio]:checked~label {
     color: #ffbf00
 }
-
-#galeria {
-    margin-top: 0px;
-    margin-right: 200px;
-    margin-bottom: 0px;
-    margin-left: 0px;
-}

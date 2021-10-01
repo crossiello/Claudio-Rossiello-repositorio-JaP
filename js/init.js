@@ -43,6 +43,17 @@ var getJSONData = function(url) {
         });
 }
 
+//Función que borra al usuario del Local Storage
+function borrarUsuario() {
+    localStorage.removeItem("datos_user")
+}
+
+//Función para loguearse
+function iniciarSesion() {
+
+    window.location = 'index.html';
+}
+
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
@@ -67,12 +78,12 @@ document.addEventListener("DOMContentLoaded", function(e) {
   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
     <a class="dropdown-item" href="cart.html">Ver mi carrito</a>
     <a class="dropdown-item" href="#">Mi perfil</a>
-    <a class="dropdown-item" href="index.html">Cerrar sesión</a>
+    <a class="dropdown-item" href="index.html" onclick = borrarUsuario()>Cerrar sesión</a>
   </div>
 </div>`;
 
     } else {
-        document.getElementById("usuarioInfo").innerHTML = "Ingresar usuario";
+        document.getElementById("usuarioInfo").innerHTML = `<button class="btn btn-outline-success" type="button" onclick = iniciarSesion() >Iniciar sesión</a>`;
     }
 
 })

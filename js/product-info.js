@@ -12,30 +12,43 @@ function showProducto(array) {
     let producto = array[indice];
 
     contenido +=
-        `
-        <div class="text-center p-4">
+        `<br>
+        <div class="row">
+        <div class="col-1"></div>
+        <div class="col-11">
                 <h1 class="display-3"><strong>` + producto.name + `</strong></h1>
+                </div>
 
-                <br><hr>
+                
          
             </div>
-            <div class="conteiner">
+            <br><hr>
+            <div class="row">
+                <div class = "col-11">
             <p class="lead">` + producto.description + `</p>
 
 
-        <h1 class="mb-1"></h1>
                 
-            </div>
+            
             <br>
-            <h3 style= "color: black">Llevalo por ` + producto.currency + producto.cost + `</h3> <hr><br><br><br>
+            <div class="row">
+            <div class = "col-8"></div>
+            <div class = "col-4">
+            <h3 style= "color: green">Llevalo por ` + producto.currency + producto.cost + `</h3>
+            </div>
+            </div>
+            </div>
+            <div class = "col-2"></div>
+            </div>
+            <hr><br><br><br>
             <h2>Galería</h2>
             <hr> 
 
-            </div>
             
             
+            <div class="row">
             
-                <div id="galeria">
+                <div col-8>
                     
                             <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                                 <div class="carousel-inner">
@@ -69,6 +82,7 @@ function showProducto(array) {
                             </div>
                        
                 </div>
+            </div>
                 
             <br>
             
@@ -259,50 +273,55 @@ function showRelacionados(array) {
     contenido += ` <br><br>
     <h2>Tal vez te interese</h2>
     <hr> 
+
+    <div class="row">
+
+    <div class="col">
     
     <a href="#" class="list-group-item list-group-item-action" onclick = verRelacionado(` + indiceUno + `)>
     <div class="row">
-                    <div class="col-3">
+        <div class="col">
     <img src="` + productoUno.images[0] + `" alt="` + productoUno.description + `" width="269" height="164"> 
     <h3 style= "color: green">` + productoUno.currency + productoUno.cost + `</h3>
-    </div>
+                    </div>
 
-    <div class="col">
-    <div class="d-flex w-100 justify-content-between">
-
-                        
-        <h4 class="mb-1">` + productoUno.name + `</h4>
-        <small class="text-muted">` + productoUno.soldCount + ` unidades vendidas</small>
-    </div>
-    <p class="mb-1">` + productoUno.description + `</p>
+        <div class="col">
     
+                        
+        <h5 class="mb-1">` + productoUno.name + `</h4>
+        <small class="text-muted">` + productoUno.soldCount + ` unidades vendidas</small>    
+    
+        </div>
     </div>
-</div>
-</a>
 
-    <br>
+</a>
+</div>
+
+<div class="col">
 
       
     <a href="#" class="list-group-item list-group-item-action" onclick = verRelacionado(` + indiceDos + `)>
     <div class="row">
-                    <div class="col-3">
+                    <div class="col">
     
     <img src="` + productoDos.images[0] + `" alt="` + productoDos.description + `" width="269" height="164">
     <h3 style= "color: green">` + productoDos.currency + productoDos.cost + `</h3> 
                     </div>
     
                     <div class="col">
-                    <div class="d-flex w-100 justify-content-between">
-                
-                                        
-                        <h4 class="mb-1">` + productoDos.name + `</h4>
-                        <small class="text-muted">` + productoDos.soldCount + ` unidades vendidas</small>
-                    </div>
-                    <p class="mb-1">` + productoDos.description + `</p>
+    
+                        
+        <h5 class="mb-1">` + productoDos.name + `</h4>
+        <small class="text-muted">` + productoDos.soldCount + ` unidades vendidas</small>
+    
+    
+    </div>
     
         </div>
-    </div>
+    
+    
     </a>
+    </div>
     
     
     
