@@ -6,7 +6,7 @@ function showCarritoList(array) {
     for (let i = 0; i < array.length; i++) {
         let articulo = array[i];
 
-        htmlContentToAppend += articulo.name + `<br>` + articulo.count + `<br>` + articulo.unitCost + `<br>` + articulo.currency + `<br>` + `subtotal: ` + (articulo.unitCost * articulo.count) + `<img src="` + articulo.src + `" alt="` + articulo.name + `" width="256px" height="156px"> <hr><br><br>`
+        htmlContentToAppend += articulo.name + `<br>` + `<input type="number" value="` + articulo.count + `" min="0" max="100" step="1"/>` + `<br>` + articulo.unitCost + `<br>` + articulo.currency + `<br>` + `subtotal: ` + (articulo.unitCost * articulo.count) + `<img src="` + articulo.src + `" alt="` + articulo.name + `" width="256px" height="156px"> <hr><br><br>`
 
     }
     document.getElementById("carrito").innerHTML = htmlContentToAppend;
