@@ -73,13 +73,13 @@ document.addEventListener("DOMContentLoaded", function(e) {
 
         //Muestro el objeto en pantalla con DOM:
         document.getElementById("usuarioInfo").innerHTML = `<div class="dropdown">
-  <button class="btn btn-outline-success" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <button class="btn btn-outline-success" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img id="imagenUsuario" src="img/usuario.png" width="50">
   ` + datos_u.email + ` 
   </button>
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <a class="dropdown-item" href="cart.html">Ver mi carrito</a>
-    <a class="dropdown-item" href="#">Mi perfil</a>
-    <a class="dropdown-item" href="index.html" onclick = borrarUsuario()>Cerrar sesión</a>
+  <div class="dropdown-menu bg-dark" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item text-light" href="cart.html">Ver mi carrito</a>
+    <a class="dropdown-item text-light" href="#">Mi perfil</a>
+    <a class="dropdown-item text-light" href="index.html" onclick = borrarUsuario()>Cerrar sesión</a>
   </div>
 </div>`;
 

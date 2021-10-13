@@ -212,3 +212,10 @@ a.custom-card:hover {
 .star-rating input[type=radio]:checked~label {
     color: #ffbf00
 }
+
+
+/* Red border */
+
+hr.raya {
+    border-top: 1px solid white;
+}
