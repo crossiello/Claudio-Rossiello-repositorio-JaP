@@ -1,5 +1,7 @@
 var carritoArray = [];
 
+// Función que realiza la suma final y la refleja en pantalla
+
 function calcTotal() {
     let total = 0;
     let lista = "<br>";
@@ -28,6 +30,8 @@ function calcTotal() {
 
 }
 
+// Función que calcula cada sub total
+
 function calcSubTotal(precio, i) {
     let cantidad = parseInt(document.getElementById(`cantidadArticulo` + i).value);
     subtotal = precio * cantidad;
@@ -36,6 +40,8 @@ function calcSubTotal(precio, i) {
 
 
 }
+
+// Función que muestra los productos seleccionados en el carrito
 
 function showCarritoList(array) {
 
@@ -71,12 +77,11 @@ function showCarritoList(array) {
     calcTotal();
 }
 
+// FUnción que despliega un mensaje al comprar
+
 function mostrarCompra() {
     alert("Su compra ha sido realizada con éxito");
 }
-
-
-
 
 
 
@@ -91,10 +96,6 @@ function getEnvio() {
     }
 }
 
-function mostrarEnvios() {
-    let tipoEnvio = getEnvio();
-    document.getElementById("mostrarEnvio").innerHTML = tipoEnvio;
-}
 
 
 
