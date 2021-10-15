@@ -98,7 +98,7 @@
 
     </div>
     <br>
-    <div class="row border m-5 p-2" style="background-color: #E5E4E2;">
+    <div class="row border mx-5 p-2" style="background-color: #E5E4E2;">
 
         <div class="col ml-5">
             <h3><strong>Datos de envío</strong></h3>
@@ -202,7 +202,7 @@
 
                 </div>
 
-                <br>
+                <br><br>
                 <div class="form-row ">
                     <div class="col-12"><label>Tipo de envío</label></div>
 
@@ -210,13 +210,13 @@
 
                         <div class="btn-group btn-group-toggle" data-toggle="buttons">
                             <label class="btn btn-secondary active">
-                                  <input type="radio" name="options" id="option1" value="5" autocomplete="off" checked> Standard (12-15 días)
+                                  <input type="radio"  name="options" onchange="calcTotal()" id="option1" value="5" autocomplete="off" checked> Standard (12-15 días)
                                 </label>
                             <label class="btn btn-success">
-                                  <input type="radio" name="options" id="option2" value="7" autocomplete="off"> Express (5-8 días)
+                                  <input type="radio"  name="options" onchange="calcTotal()" id="option2" value="7" autocomplete="off"> Express (5-8 días)
                                 </label>
                             <label class="btn btn-warning">
-                                  <input type="radio" name="options" id="option3" value="15"autocomplete="off"> Premium (2-5 días)
+                                  <input type="radio" name="options" onchange="calcTotal()" id="option3" value="15"autocomplete="off"> Premium (2-5 días)
                                 </label>
                         </div>
 
@@ -245,10 +245,21 @@
                 </div>
             </form>
 
+            <br>
+
+            <div class="row my-5">
+
+                <div class="col-6 mx-auto"><button type="button" onclick="mostrarCompra()" class="btn btn-dark btn-lg btn-block">Comprar</button></div>
 
 
-            <button type="button" class="btn btn-primary" onclick="mostrarEnvios()">Ver envío</button>
-            <div id="mostrarEnvio"></div>
+
+            </div>
+
+
+
+
+
+
 
 
         </div>
