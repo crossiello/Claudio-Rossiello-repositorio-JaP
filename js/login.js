@@ -37,7 +37,7 @@ function guardarDatos() {
 
     //Creo un objeto que contega los datos a guardar:
     let datos_u = {
-        email: document.getElementById("inputEmail").value
+        usuario: document.getElementById("inputEmail").value
     };
 
     let datos_u_json = JSON.stringify(datos_u);

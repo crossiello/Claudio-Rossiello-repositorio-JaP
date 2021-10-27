@@ -55,12 +55,12 @@ function showProductsList() {
 
             if (buscar == undefined || producto.name.toLowerCase().indexOf(buscar) != -1 || producto.description.toLowerCase().indexOf(buscar) != -1) {
 
-                htmlContentToAppend += `
+                htmlContentToAppend += `<div class="col-lg-6 my-2">
 
                 <a href="#" class="list-group-item list-group-item-action" onclick = verProducto(` + producto.id + `)>
             
                 <div class="row">
-                    <div class="col-3">
+                    <div class="col-5">
                     
                         <img src="` + producto.imgSrc + `" alt="` + producto.description + `" class="img-thumbnail">
                         <h3 style= "color: green">` + producto.currency + producto.cost + `</h3> 
@@ -74,11 +74,14 @@ function showProductsList() {
                             <small class="text-muted">` + producto.soldCount + ` unidades vendidas</small>
                         </div>
                         <p class="mb-1">` + producto.description + `</p>
+
+                        
                         
                     </div>
                 </div>
 
                 </a>
+                </div>
             `
             }
 
