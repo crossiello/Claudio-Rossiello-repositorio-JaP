@@ -78,7 +78,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
   </button>
   <div class="dropdown-menu bg-dark" aria-labelledby="dropdownMenuButton">
     <a class="dropdown-item text-light" href="cart.html">Ver mi carrito</a>
-    <a class="dropdown-item text-light" href="#">Mi perfil</a>
+    <a class="dropdown-item text-light" href="my-profile.html">Mi perfil</a>
     <a class="dropdown-item text-light" href="index.html" onclick = borrarUsuario()>Cerrar sesión</a>
   </div>
 </div>`;
