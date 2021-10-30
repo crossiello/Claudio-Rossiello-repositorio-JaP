@@ -67,7 +67,7 @@
         <form id="needs-validation" novalidate>
 
 
-            <div class="row">
+            <div class="row my-4">
                 <div class="col-md-6">
                     <label>Nombres </label>
                     <input type="text" id="nombres" class="form-control" placeholder="Nombres" required>
@@ -85,9 +85,10 @@
             </div>
 
 
-
-            <label for="edad">Edad</label>
-            <select class="form-control" id="edad" required>
+            <div class="row my-4">
+                <div class="col-md-6">
+                    <label for="edad">Edad</label>
+                    <select class="form-control" id="edad" required>
                 <option value="" selected disabled hidden>Seleccione su edad</option>
                 <option>18</option>
                 <option>19</option>
@@ -178,19 +179,32 @@
                 <option>104</option>
                 <option>105</option>
               </select>
-            <div class="invalid-feedback">
-                Por favor, ingrese su edad (18+)
+                    <div class="invalid-feedback">
+                        Por favor, ingrese su edad (18+)
+                    </div>
+
+                </div>
             </div>
 
 
-
-            <label for="email">Email </label>
-            <input type="email" class="form-control" id="email" placeholder="nombre@ejemplo.com" required>
-            <div class="invalid-feedback">
-                Por favor, ingrese su email
+            <div class="row my-4">
+                <div class="col-md-8">
+                    <label for="email">Email </label>
+                    <input type="email" class="form-control" id="email" placeholder="nombre@ejemplo.com" required>
+                    <div class="invalid-feedback">
+                        Por favor, ingrese su email
+                    </div>
+                </div>
             </div>
 
+            <div class="row my-4">
+                <div class="col">
+                    <label for="inputFile">Agregue una imagen (opcional) </label>
+                    <input class="form-control" type="file" id="inputFile" onchange="previewFile()" placeholder="">
+                    <img id="foto" src="" height="200" alt="Imagen">
+                </div>
 
+            </div>
 
 
             <div class="row my-5">
@@ -201,6 +215,9 @@
 
         </form>
     </div>
+
+
+
     <footer class="text-muted bg-light">
         <div class="container">
             <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>

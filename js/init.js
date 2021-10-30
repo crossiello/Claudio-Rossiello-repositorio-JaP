@@ -63,16 +63,21 @@ function iniciarSesion() {
 document.addEventListener("DOMContentLoaded", function(e) {
 
     //Primero verifico si hay algo guardado con ese nombre
-    if (localStorage.getItem("datos_user")) {
-
-        datos_u_json = localStorage.getItem("datos_user");
-
-        datos_u = JSON.parse(datos_u_json);
+    if (document.getElementById("usuarioInfo")) {
 
 
+        if (localStorage.getItem("datos_user")) {
 
-        //Muestro el objeto en pantalla con DOM:
-        document.getElementById("usuarioInfo").innerHTML = `<div class="dropdown">
+            datos_u_json = localStorage.getItem("datos_user");
+
+            datos_u = JSON.parse(datos_u_json);
+
+
+
+
+
+            //Muestro el objeto en pantalla con DOM:
+            document.getElementById("usuarioInfo").innerHTML = `<div class="dropdown">
   <button class="btn btn-outline-success" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img id="imagenUsuario" src="img/usuario.png" width="50">
   ` + datos_u.email + ` 
   </button>
@@ -83,8 +88,9 @@ document.addEventListener("DOMContentLoaded", function(e) {
   </div>
 </div>`;
 
-    } else {
-        document.getElementById("usuarioInfo").innerHTML = `<button class="btn btn-outline-success" type="button" onclick = iniciarSesion() >Iniciar sesión</a>`;
+        } else {
+            document.getElementById("usuarioInfo").innerHTML = `<button class="btn btn-outline-success" type="button" onclick = iniciarSesion() >Iniciar sesión</a>`;
+        }
     }
 
 })
