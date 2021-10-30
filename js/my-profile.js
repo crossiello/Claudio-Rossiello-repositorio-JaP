@@ -24,6 +24,7 @@ function guardar() {
         apellidos: document.getElementById("apellidos").value,
         edad: document.getElementById("edad").value,
         email: document.getElementById("email").value,
+        telefono: document.getElementById("telefono").value,
         imagen: document.getElementById("foto").src
     }
 
@@ -41,6 +42,7 @@ function mostrar() {
         document.getElementById("apellidos").value = profile.apellidos;
         document.getElementById("edad").value = profile.edad;
         document.getElementById("email").value = profile.email;
+        document.getElementById("telefono").value = profile.telefono;
         document.getElementById("foto").src = profile.imagen;
     } else {
         let datos_json = localStorage.getItem("datos_user");

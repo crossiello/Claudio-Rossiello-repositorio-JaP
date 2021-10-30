@@ -198,6 +198,16 @@
             </div>
 
             <div class="row my-4">
+                <div class="col-md-8">
+                    <label for="telefono">Teléfono de contacto </label>
+                    <input type="tel" class="form-control" id="telefono" placeholder="Ingrese su teléfono" minlength="8" required>
+                    <div class="invalid-feedback">
+                        Por favor, ingrese un teléfono válido
+                    </div>
+                </div>
+            </div>
+
+            <div class="row my-4">
                 <div class="col">
                     <label for="inputFile">Agregue una imagen (opcional) </label>
                     <input class="form-control" type="file" id="inputFile" onchange="previewFile()" placeholder="">
