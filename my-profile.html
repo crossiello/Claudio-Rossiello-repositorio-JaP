@@ -64,24 +64,31 @@
         </div>
     </nav>
     <div class="container p-5">
-        <form>
+        <form id="needs-validation" novalidate>
 
-            <div class="form-group">
-                <div class="row">
-                    <div class="col-md-6">
-                        <label>Nombres </label>
-                        <input type="text" class="form-control" placeholder="Nombres">
+
+            <div class="row">
+                <div class="col-md-6">
+                    <label>Nombres </label>
+                    <input type="text" id="nombres" class="form-control" placeholder="Nombres" required>
+                    <div class="invalid-feedback">
+                        Por favor, ingrese sus nombres
                     </div>
-                    <div class="col-md-6">
-                        <label>Apellidos </label>
-                        <input type="text" class="form-control" placeholder="Apellidos">
+                </div>
+                <div class="col-md-6">
+                    <label>Apellidos </label>
+                    <input type="text" id="apellidos" class="form-control" placeholder="Apellidos" required>
+                    <div class="invalid-feedback">
+                        Por favor, ingrese sus apellidos
                     </div>
                 </div>
             </div>
 
-            <div class="form-group">
-                <label for="edad">Edad</label>
-                <select class="form-control" id="edad">
+
+
+            <label for="edad">Edad</label>
+            <select class="form-control" id="edad" required>
+                <option value="" selected disabled hidden>Seleccione su edad</option>
                 <option>18</option>
                 <option>19</option>
                 <option>20</option>
@@ -171,26 +178,24 @@
                 <option>104</option>
                 <option>105</option>
               </select>
-            </div>
-
-            <div class="form-group">
-                <label for="email">Email </label>
-                <input type="email" class="form-control" id="email" placeholder="nombre@ejemplo.com">
+            <div class="invalid-feedback">
+                Por favor, ingrese su edad (18+)
             </div>
 
 
-            <div class="form-group">
-                <label for="validationCustomUsername">Usuario</label>
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text" id="inputGroupPrepend">@</span>
-                    </div>
-                    <input type="text" class="form-control" id="validationCustomUsername" placeholder="Usuario" aria-describedby="inputGroupPrepend" required>
-                </div>
+
+            <label for="email">Email </label>
+            <input type="email" class="form-control" id="email" placeholder="nombre@ejemplo.com" required>
+            <div class="invalid-feedback">
+                Por favor, ingrese su email
             </div>
-            <div class="row">
+
+
+
+
+            <div class="row my-5">
                 <div class="col-md-8"></div>
-                <div class="col"><button class="btn btn-success btn-lg" id="boton" type="submit">Guardar datos</button></div>
+                <div class="col"><button type="submit" class="btn btn-primary mb-3">Guardar datos</button></div>
             </div>
 
 
