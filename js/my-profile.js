@@ -28,13 +28,29 @@ function guardar() {
         imagen: document.getElementById("foto").src
     }
 
+    let datos_u = {
+        email: document.getElementById("email").value
+    };
+
+    let datos_u_json = JSON.stringify(datos_u);
+
+    localStorage.setItem("datos_user", datos_u_json);
+
     localStorage.setItem('profile', JSON.stringify(datos_profile));
-    alert("Datos guardados con éxito");
+
+    alert(document.getElementById("nombres").value + ", sus datos han sido guardados con éxito");
 
 }
 
 function mostrar() {
-    if (localStorage.getItem("profile")) {
+
+    let datos_json = localStorage.getItem("datos_user");
+    let datos = JSON.parse(datos_json);
+
+    let profile_json = localStorage.getItem("profile");
+    let profile = JSON.parse(profile_json);
+
+    if ((localStorage.getItem("profile")) && profile.email == datos.email) {
 
         let profile_json = localStorage.getItem("profile");
         let profile = JSON.parse(profile_json);
@@ -45,8 +61,7 @@ function mostrar() {
         document.getElementById("telefono").value = profile.telefono;
         document.getElementById("foto").src = profile.imagen;
     } else {
-        let datos_json = localStorage.getItem("datos_user");
-        datos = JSON.parse(datos_json);
+
         document.getElementById("email").value = datos.email;
     }
 
@@ -65,6 +80,7 @@ function mostrar() {
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e) {
+
     previewFile();
     mostrar();
 
