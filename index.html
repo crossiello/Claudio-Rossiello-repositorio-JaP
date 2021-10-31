@@ -17,34 +17,47 @@
 </head>
 
 <body>
-    <div id="signIn">
-        <img src="img/login.png" width="450">
+
+    <div class="row m-5">
+        <div class="col-md-3"></div>
+        <div class="col-md-6 m-5" style="background-color:#f8f9fb ; border: groove">
+            <img src="img/login.png" class="img-fluid">
 
 
-        <h1>Inicio de sesión</h1><br>
+
+            <form id="needs-validation" novalidate>
 
 
-        <input type="email" id="inputEmail" placeholder="Email"><br><br>
+                <div class="row my-4">
+                    <div class="col">
+                        <input type="email" id="email" class="form-control" placeholder="Email" required>
+                        <div class="invalid-feedback">
+                            Por favor, ingrese su mail
+                        </div>
+                    </div>
+                </div>
 
+                <div class="row my-4">
+                    <div class="col">
+                        <input type="password" id="Contraseña" class="form-control" placeholder="Contraseña" required>
+                        <div class="invalid-feedback">
+                            Por favor, ingrese su contraseña
+                        </div>
+                    </div>
+                </div>
+                <div class="row my-4">
+                    <div class="col-12 my-4"><input type="checkbox" value="remember-me"> Recordar usuario y contraseña</div>
 
-        <input type="password" id="inputPassword" placeholder="Contraseña"><br><br>
-
-
-        <div>
-            <label>
-            <input type="checkbox" value="remember-me"> Recordar usuario y contraseña
-          </label>
+                    <div class="col-md-7"></div>
+                    <div class="col-md-5"><button type="submit" class="btn btn-primary btn-lg">Ingresar</button></div>
+                </div>
+            </form>
         </div>
-
-
-
-
-        <button class="btn btn-lg btn-primary btn-block" id="boton" onclick="guardarDatos()">Ingresar</button>
-
-
+        <div class="col-md-3"></div>
     </div>
     <script src="js/init.js"></script>
     <script src="js/login.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
