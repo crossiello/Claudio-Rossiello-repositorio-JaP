@@ -23,7 +23,7 @@ function calcTotal() {
 
         }
     }
-    lista += `<strong>-Costo envío:</strong> ` + getEnvio() + `% <hr class="raya">`;
+    lista += `<strong>-Costo envío</strong> <br> USD ` + (total / 100) * getEnvio() + ` (` + getEnvio() + `% )<hr class="raya">`;
     total = total + ((total / 100) * getEnvio());
     document.getElementById("listaCompras").innerHTML = lista;
     document.getElementById("listaCompras").innerHTML += `<h3>USD ` + total + `</h3>`;
@@ -86,7 +86,7 @@ function mostrarCompra() {
 
 
 
-//Obtengo la puntuación que puso el usuario
+//Obtengo el envío que eligió el usuario
 function getEnvio() {
     var elements = document.getElementsByName("options");
     for (var i = 0; i < elements.length; i++) {
