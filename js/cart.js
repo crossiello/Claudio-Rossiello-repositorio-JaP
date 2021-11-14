@@ -147,6 +147,7 @@ form.addEventListener('submit', function(e) {
         if (getPago() == "credito" && numeroCredito.value != "" && codigo.value != "" && fechaV.value != "") {
             e.preventDefault();
             alert("Gracias por su compra");
+            window.location = "inicio.html";
         } else if (getPago() == "transferencia" && cuentaNumero.value != "") {
             e.preventDefault();
             alert("Gracias por su compra");
