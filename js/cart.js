@@ -52,7 +52,7 @@ function showCarritoList(array) {
         let articulo = array[i];
 
         htmlContentToAppend += `
-        <div class="card" style="background-color: #E5E4E2;">
+        <div class="card text-center" style="background-color: #E5E4E2;">
   <div class="row p-2">
     <div class="col-md-4">
     
@@ -70,14 +70,28 @@ function showCarritoList(array) {
       </div>
     </div>
   </div>
+  </div>
+  </div>
+
+<div class="row m-3">
+<div class="col-xs-6 col-md-10"></div>
+<div class="col-xs-4 col-md-2"><button onclick="eliminar(` + i + `)">  <img id="papelera" src="img/papelera.png" width="40"> </button> </div> 
 </div>
 </div>
-<button onclick="eliminar(` + i + `)">  Eliminar </button> </div > <br> `
+</div>
+</div>
+</div>
+</div>
+
+<br>
+ `
 
     }
     document.getElementById("carrito").innerHTML = htmlContentToAppend;
     calcTotal();
 }
+
+//Obtengo el array de productos
 
 getJSONData(CART_INFO_URL2).then(function(resultado) {
     if (resultado.status === "ok") {
@@ -86,14 +100,16 @@ getJSONData(CART_INFO_URL2).then(function(resultado) {
 
 });
 
+//Función que elimina al artículo seleccionado
 function eliminar(index) {
     if (carritoPrimario.length > 1) {
         let eliminado = carritoPrimario.splice((index - 1), 1);
         showCarritoList(eliminado);
 
     } else {
-        document.getElementById("carrito").innerHTML = "No ha seleccionado ningún producto";
-        calcTotal();
+        document.getElementById("carrito").innerHTML = `<h2 class="text-center"> No ha seleccionado ningún producto 
+        <br><br> <a class="text-light bg-dark" href="products.html">¡Quiero comprar!</a></h2><br><br>`;
+        document.getElementById("listaCompras").innerHTML = "";
     }
 
 
