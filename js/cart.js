@@ -1,5 +1,15 @@
 var carritoArray = [];
 
+//Obtengo el envío que eligió el usuario
+function getEnvio() {
+    var elements = document.getElementsByName("options");
+    for (var i = 0; i < elements.length; i++) {
+        if (elements[i].checked) {
+            return parseInt(elements[i].value);
+        }
+    }
+}
+
 // Función que realiza la suma final y la refleja en pantalla
 
 function calcTotal() {
@@ -180,15 +190,7 @@ function radioTransferencia() {
 
 
 
-//Obtengo el envío que eligió el usuario
-function getEnvio() {
-    var elements = document.getElementsByName("options");
-    for (var i = 0; i < elements.length; i++) {
-        if (elements[i].checked) {
-            return parseInt(elements[i].value);
-        }
-    }
-}
+
 
 
 
