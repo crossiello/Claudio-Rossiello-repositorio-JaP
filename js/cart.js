@@ -41,6 +41,8 @@ function calcSubTotal(precio, i) {
 
 }
 
+
+
 // Función que muestra los productos seleccionados en el carrito
 
 function showCarritoList(array) {
@@ -70,19 +72,94 @@ function showCarritoList(array) {
   </div>
 </div>
 </div>
-</div><br>`
+<button onclick="eliminar(` + i + `)">  Eliminar </button> </div > <br> `
 
     }
     document.getElementById("carrito").innerHTML = htmlContentToAppend;
     calcTotal();
 }
 
-// FUnción que despliega un mensaje al comprar
+getJSONData(CART_INFO_URL2).then(function(resultado) {
+    if (resultado.status === "ok") {
+        carritoPrimario = resultado.data.articles;
+    }
 
-function mostrarCompra() {
-    alert("Su compra ha sido realizada con éxito");
+});
+
+function eliminar(index) {
+    if (carritoPrimario.length > 1) {
+        let eliminado = carritoPrimario.splice((index - 1), 1);
+        showCarritoList(eliminado);
+
+    } else {
+        document.getElementById("carrito").innerHTML = "No ha seleccionado ningún producto";
+        calcTotal();
+    }
+
+
+
+
+
 }
 
+
+// Obtengo la forma de pago
+function getPago() {
+    var elements = document.getElementsByName("pago");
+    for (var i = 0; i < elements.length; i++) {
+        if (elements[i].checked) {
+            return elements[i].id;
+        }
+    }
+}
+
+//VALIDACIÓN
+
+let form = document.getElementById('needs-validation');
+let numeroCredito = document.getElementById("numeroCredito");
+let codigo = document.getElementById("codigo");
+let fechaV = document.getElementById("fechaV");
+let cuentaNumero = document.getElementById("cuentaNumero");
+
+
+
+form.addEventListener('submit', function(e) {
+    if (!form.checkValidity()) {
+        e.preventDefault();
+        e.stopPropagation();
+    } else {
+        if (getPago() == "credito" && numeroCredito.value != "" && codigo.value != "" && fechaV.value != "") {
+            e.preventDefault();
+            alert("Gracias por su compra");
+        } else if (getPago() == "transferencia" && cuentaNumero.value != "") {
+            e.preventDefault();
+            alert("Gracias por su compra");
+            window.location = "inicio.html";
+        } else {
+            e.preventDefault();
+            e.stopPropagation();
+            alert("Debe seleccionar un método de pago correcto");
+        }
+
+
+    }
+    form.classList.add('was-validated');
+})
+
+
+function radioCredito() {
+    document.getElementById("numeroCredito").disabled = false;
+    document.getElementById("codigo").disabled = false;
+    document.getElementById("fechaV").disabled = false;
+    document.getElementById("cuentaNumero").disabled = true;
+}
+
+function radioTransferencia() {
+    document.getElementById("cuentaNumero").disabled = false;
+    document.getElementById("numeroCredito").disabled = true;
+    document.getElementById("codigo").disabled = true;
+    document.getElementById("fechaV").disabled = true;
+}
 
 
 

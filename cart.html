@@ -96,40 +96,49 @@
         </div>
 
 
-    </div>
-    <br>
-    <div class="row border mx-5 p-2" style="background-color: #E5E4E2;">
 
-        <div class="col ml-5">
-            <h3><strong>Datos de envío</strong></h3>
-            <br>
+        <br>
+        <div class="row border mx-5 p-2" style="background-color: #E5E4E2;">
 
-
-            <form>
-                <div class="form-row">
-                    <div class="col-12"><label>Dirección</label></div>
-
-
-                    <div class="col-md-4">
-                        <input type="text" class="form-control" placeholder="Calle">
-                    </div>
-
-                    <div class="col-xs-4 col-sm-6 col-md-2">
-                        <input type="text" class="form-control" placeholder="Número">
-                    </div>
-
-                    <div class="col-md-3">
-                        <input type="text" class="form-control" placeholder="Esquina">
-                    </div>
-
-                </div>
-
+            <div class="col ml-5">
+                <h3><strong>Datos de envío</strong></h3>
                 <br>
 
-                <div class="form-row">
-                    <div clas="col-lg-3">
-                        <label>País</label>
-                        <select id="inputState" class="form-control">
+
+                <form id="needs-validation" novalidate>
+                    <div class="form-row">
+                        <div class="col-12"><label>Dirección</label></div>
+
+
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" placeholder="Calle" required>
+                            <div class="invalid-feedback">
+                                Por favor, ingrese la calle
+                            </div>
+                        </div>
+
+                        <div class="col-xs-4 col-sm-6 col-md-3">
+                            <input type="text" class="form-control" placeholder="Número" required>
+                            <div class="invalid-feedback">
+                                Por favor, ingrese el número
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <input type="text" class="form-control" placeholder="Esquina" required>
+                            <div class="invalid-feedback">
+                                Por favor, ingrese la esquina
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <br>
+
+                    <div class="form-row">
+                        <div clas="col-lg-3">
+                            <label>País</label>
+                            <select id="inputState" class="form-control" required>
                             <option selected="selected" value="1">Uruguay</option>
                             <option value="2">Alemania</option>
                             <option value="3">Argentina</option>
@@ -198,150 +207,189 @@
                             <option value="66">Venezuela</option>
                             <option value="67">Otro</option>
                             </select>
+                        </div>
+
                     </div>
 
-                </div>
+                    <br><br>
+                    <div class="form-row ">
+                        <div class="col-12"><label>Tipo de envío</label></div>
 
-                <br><br>
-                <div class="form-row ">
-                    <div class="col-12"><label>Tipo de envío</label></div>
+                        <div class="col-12">
 
-                    <div class="col-12">
-
-                        <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                            <label class="btn btn-secondary active">
+                            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                <label class="btn btn-secondary active">
                                   <input type="radio"  name="options" onchange="calcTotal()" id="option1" value="5" autocomplete="off" checked> Standard (12-15 días)
                                 </label>
-                            <label class="btn btn-success">
+                                <label class="btn btn-info">
                                   <input type="radio"  name="options" onchange="calcTotal()" id="option2" value="7" autocomplete="off"> Express (5-8 días)
                                 </label>
-                            <label class="btn btn-warning">
+                                <label class="btn btn-warning">
                                   <input type="radio" name="options" onchange="calcTotal()" id="option3" value="15"autocomplete="off"> Premium (2-5 días)
                                 </label>
-                        </div>
-
-                        <br><br><br>
-
-
-                    </div>
-
-
-                    <div class="row">
-                        <div class="col-12">
-                            <h3><strong>Forma de pago</strong></h3>
-                        </div>
-
-                        <div class="col-12">
-
-                            <div class="form-group">
-                                <label for="exampleFormControlSelect1">Seleccione la forma de pago</label>
-                                <select class="form-control" id="exampleFormControlSelect1">
-                                  <option>Tarjeta de crédito</option>
-                                  <option>Transferencia bancaria</option>
-                                </select>
                             </div>
+
+
+
                         </div>
                     </div>
-                </div>
-            </form>
 
-            <br>
+                    <br><br>
 
-            <div class="row my-5">
+                    <div class="form-row">
 
-                <div class="col-6 mx-auto"><button type="button" onclick="mostrarCompra()" class="btn btn-dark btn-lg btn-block">Comprar</button></div>
+                        <div class="col-12">
+
+
+
+                            <div id="MyModal" class="modal-body">
+                                <div class="container-fluid">
+                                    <button type="button" class="btn btn-success btn-lg" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                  Forma de pago
+                                      </button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <br>
+
+                    <div class="row my-5">
+
+                        <div class="col-6 mx-auto"><button type="submit" class="btn btn-dark btn-lg btn-block">Comprar</button></div>
+
+
+
+                    </div>
+
+
+
+                </form>
+
+
 
 
 
             </div>
-
-
-
-
-
-
-
-
         </div>
-    </div>
 
-    <div>
-        <div id="MyModal" class="modal-body">
-            <div class="container-fluid">
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  Forma de pago
-      </button>
+
+
+
+
+
+
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Forma de pago</h5>
+                        <button type="button" class="close" data-bs-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="pago" onclick="radioCredito()" id="credito">
+                            <label class="form-check-label" for="flexRadioDefault1">
+                              Tarjeta de crédito
+                            </label>
+
+                            <div class="row">
+
+
+                                <div class="col-xs-8 mx-2">
+                                    <input type="number" class="form-control" placeholder="Número" id="numeroCredito">
+
+                                </div>
+
+
+
+                                <div class="col-xs-3 mx-2">
+                                    <input type="number" class="form-control" placeholder="Cód. de seguridad" id="codigo">
+
+                                </div>
+
+
+                                <div class="col-xs-6 mt-3">
+                                    <label for="start">Fecha de vencimiento:</label>
+
+                                    <input type="date" id="fechaV" name="trip-start" min="2021-11-14" max="2025-12-31">
+                                </div>
+
+                            </div>
+
+
+
+
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="pago" onclick="radioTransferencia()" id="transferencia">
+                            <label class="form-check-label" for="flexRadioDefault2">
+                              Transferencia bancaria
+                            </label>
+                            <form>
+                                <input type="text" id="cuentaNumero" class="form-control" placeholder="Número de cuenta">
+
+                            </form>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-
-
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Forma de pago</h5>
-                    <button type="button" class="close" data-bs-dismiss="modal">&times;</button>
-                </div>
-                <div class="modal-body">
 
 
 
+
+        <script>
+            var myModal = document.getElementById('myModal')
+            var myInput = document.getElementById('myInput')
+
+            myModal.addEventListener('shown.bs.modal', function() {
+                myInput.focus()
+            })
+        </script>
 
 
 
 
 
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
 
-                </div>
 
+
+
+
+
+        <footer class="text-muted bg-light">
+            <div class="container">
+                <p class="float-right">
+                    <a href="#">Volver arriba</a>
+                </p>
+                <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
+                <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
+            </div>
+        </footer>
+        <div id="spinner-wrapper">
+            <div class="lds-ring">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
             </div>
         </div>
-    </div>
-
-
-
-
-
-
-
-
-
-    </div>
-    <footer class="text-muted bg-light">
-        <div class="container">
-            <p class="float-right">
-                <a href="#">Volver arriba</a>
-            </p>
-            <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
-            <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
-        </div>
-    </footer>
-    <div id="spinner-wrapper">
-        <div class="lds-ring">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-    </div>
-    <script>
-        var myModal = document.getElementById('myModal')
-        var myInput = document.getElementById('myInput')
-
-        myModal.addEventListener('shown.bs.modal', function() {
-            myInput.focus()
-        })
-    </script>
-    <script src="js/jquery-3.4.1.min.js"></script>
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="js/dropzone.js"></script>
-    <script src="js/init.js"></script>
-    <script src="js/cart.js"></script>
+        <script src="js/jquery-3.4.1.min.js"></script>
+        <script src="js/bootstrap.bundle.min.js"></script>
+        <script src="js/bootstrap.bundle.js"></script>
+        <script src="js/dropzone.js"></script>
+        <script src="js/init.js"></script>
+        <script src="js/cart.js"></script>
 </body>
 
 </html>
